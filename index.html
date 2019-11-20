@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>title</title>
+  
+    <link rel="stylesheet" href="mapstyle.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin=""/>  
+
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+  
+</head>
+  
+  
+  <body>
+  
+    <div id="mapid"></div>
+
+    <script>
+
+    var mymap = L.map('mapid').setView([53.309863, -7.021065], 10.5);
+
+    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        maxZoom: 18,
+        id: 'mapbox.streets',
+        accessToken: 'pk.eyJ1IjoicGFuaXN0ZXJmYXRoZXJveSIsImEiOiJjazM3bXFweTEwMGV0M3Byd2I1aDdveGd0In0.qzVbRcZ7A4NKF4mLlVHbKQ'
+    }).addTo(mymap);
+
+    var marker = L.marker([51.5, -0.09]).addTo(mymap);
+
+    var circle1 = L.circle([53.243657, -6.971283], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.5,
+        radius: 500
+    }).addTo(mymap);
+
+
+    circle1.bindPopup("<b>The Nine Mile Road</b><br><a href='info.html'>Click Here</a>");
+
+    
+
+
+ 
+
+
+    var circle2 = L.circle([53.343184, -6.959953], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.5,
+        radius: 500
+    }).addTo(mymap);
+
+    circle2.bindPopup("<b>Pinkeen Road</b><br><a href='info.html'>Click Here</a>");
+
+
+    var circle3 = L.circle([53.284727, -6.900387], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.5,
+        radius: 500
+    }).addTo(mymap);
+
+    circle3.bindPopup("<b>Scour Bridge Canal</b><br><a href='info.html'>Click Here</a>");
+
+
+
+    var circle4 = L.circle([53.350972, -7.097797], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.5,
+        radius: 500
+    }).addTo(mymap);
+
+    circle4.bindPopup("<b>Bullsbridge</b><br><a href='info.html'>Click Here</a>");
+
+
+
+
+    var circle5 = L.circle([53.367466, -7.023468], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.5,
+        radius: 500
+    }).addTo(mymap);
+
+    circle5.bindPopup("<b>The Woody Cross Road</b><br><a href='info.html'>Click Here</a>");
+
+
+    // var polygon = L.polygon([
+    //     [51.509, -0.08],
+    //     [51.503, -0.06],
+    //     [51.51, -0.047]
+    // ]).addTo(mymap);
+
+
+    </script>
+
+  </body>
+</html>
