@@ -1,10 +1,32 @@
 <!DOCTYPE html>
 <html>
+
+
   <head>
     <meta charset="UTF-8">
     <title>Submit an Item</title>
     <link rel="stylesheet" href="mapstyle.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin=""/>  
+
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+
+
+
+
+    <!-- <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script> -->
+    <script src="https://cdn-geoweb.s3.amazonaws.com/esri-leaflet/0.0.1-beta.5/esri-leaflet.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/esri-leaflet-geocoder/2.2.14/esri-leaflet-geocoder.js"></script> -->
+    <script src="https://cdn-geoweb.s3.amazonaws.com/esri-leaflet-geocoder/0.0.1-beta.5/esri-leaflet-geocoder.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn-geoweb.s3.amazonaws.com/esri-leaflet-geocoder/0.0.1-beta.5/esri-leaflet-geocoder.css">
+  
   </head>
+
+
+
   <body>
     <form   action=”mailto:panisterfatheroy@gmail.com”
             method=”POST”    
@@ -15,17 +37,25 @@
     What type of item do you want to contribute? 
     <br>
     <select id="type" name="type">
-      <option value="text">Text</option>
-      <option value="image">Image</option>
-      <option value="recording">Recording</option>
-      <option value="video">Video</option>
+      <option value="site">Site</option>
+      <option value="siteHist">Historical Site</option>
+      <option value="siteUnoff">Unofficial Site</option>
+      <option value="bog">Bog</option>
+      <option value="church">Church</option>
+      <option value="dump">Dump</option>
+      <option value="festival">Festival</option>
+      <option value="forest">Forest</option>
+      <option value="grave">Grave</option>
+      <option value="pilgrimage">Pilgrimage Site</option>
+      <option value="scrapyard">Scrapyard</option>
+      <option value="water">Water</option>
+      <option value="crop">Crop</option>
+      <option value="healer">Healer</option>
+      <option value="other">Other</option>
+
     </select>
     <br>
 
-
-    <br>
-    Upload a file:
-    <br>
 
     <br>
     Title:
@@ -34,30 +64,31 @@
     <br>
 
     <br>
+    Description of the item, size, material, duration, what it is
+    <br>
+    <textarea name=”VisitorComment” rows=”4″ cols=”20″></textarea>
+
+    <br>
+    Upload an image:
+    <br>
+
+   
+
+    <br>
     A point or period of time associated with an event in the lifecycle of the resource:
     <br>
     <input type="date" name="bday">
     <br>
 
 
-    <br>
-    Description of the item, size, material, duration, what it is
-    <br>
-    <textarea name=”VisitorComment” rows=”4″ cols=”20″></textarea>
+ 
     
-    <br>
-    Who created the item
-    <br>
-    <input type=”text” size=”24″ name=”VisitorName”>
-    <br>
 
-    <br>
-    What is the subject of the item<br>
-    <input type=”text” size=”24″ name=”VisitorName”>
-    <br>
     
     <br>
     Find A Geographic Location For The Item:
+    <br>
+    <div id="mapid" style="height: 50vh; width: 75vw; margin-left: 0px; clear: left;"></div>
     <br>
 
     <br>
@@ -70,7 +101,7 @@
     <br>
 
     <br>
-    Email Address:
+    Email Address (not shown):
     <br>
     <input type=”text” size=”24″ name=”VisitorName”>
     <br>
@@ -78,6 +109,13 @@
     <br>    
     <input type="submit" value="Submit">    
 
-    </form>
+  </form>
+
+
+
+
+  <script src="map.js"></script>
+
+
   </body>
 </html>

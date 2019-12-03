@@ -1,0 +1,26 @@
+{
+    "items": {
+        "item1": {
+            "name": "First Item",
+            "file": "blah.jpg",
+            "geolocation": "[55.5, -54.4]",
+            "collection": "Church",
+            "description": "This is the first church",
+            "type": "First Item",
+            "submittedBy": "First Item",
+            "description": "First Item"
+
+        },
+        "item2": {
+            "name": "Second Item",
+            "file": "blah.mp3",
+            "geolocation": "First Item",
+            "collection": "First Item",
+            "description": "First Item",
+            "type": "First Item",
+            "submittedBy": "First Item",
+            "description": "First Item"
+
+        }
+    }
+}
