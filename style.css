@@ -1,0 +1,17 @@
+
+body {
+  background-color: rgb(211, 226, 233);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+#mapid { 
+    height: 85vh; 
+    width: 70vw;
+    margin: auto;
+
+}
+
+
+

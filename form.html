@@ -5,14 +5,18 @@
   <head>
     <meta charset="UTF-8">
     <title>Submit an Item</title>
-    <link rel="stylesheet" href="mapstyle.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
     integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
     crossorigin=""/>  
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style-form.css" />
+
 
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
     integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
     crossorigin=""></script>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
 
 
@@ -23,98 +27,107 @@
     <script src="https://cdn-geoweb.s3.amazonaws.com/esri-leaflet-geocoder/0.0.1-beta.5/esri-leaflet-geocoder.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn-geoweb.s3.amazonaws.com/esri-leaflet-geocoder/0.0.1-beta.5/esri-leaflet-geocoder.css">
   
+
+
   </head>
 
 
 
   <body>
-    <form   action=”mailto:panisterfatheroy@gmail.com”
-            method=”POST”    
-            enctype=”multipart/form-data”    
-            name=”EmailTestForm”>
+    <form id="myForm"  name="myemailform" action=”form-to-email.php” method=”POST”>
 
-    <br>
-    What type of item do you want to contribute? 
-    <br>
-    <select id="type" name="type">
-      <option value="site">Site</option>
-      <option value="siteHist">Historical Site</option>
-      <option value="siteUnoff">Unofficial Site</option>
-      <option value="bog">Bog</option>
-      <option value="church">Church</option>
-      <option value="dump">Dump</option>
-      <option value="festival">Festival</option>
-      <option value="forest">Forest</option>
-      <option value="grave">Grave</option>
-      <option value="pilgrimage">Pilgrimage Site</option>
-      <option value="scrapyard">Scrapyard</option>
-      <option value="water">Water</option>
-      <option value="crop">Crop</option>
-      <option value="healer">Healer</option>
-      <option value="other">Other</option>
+      <br>
+      What type of item do you want to contribute? 
+      <br>
+      <select id="type" class="formInput" name="type">
+        <option value="site">Site</option>
+        <option value="siteHist">Historical Site</option>
+        <option value="siteUnoff">Unofficial Site</option>
+        <option value="bog">Bog</option>
+        <option value="church">Church</option>
+        <option value="dump">Dump</option>
+        <option value="festival">Festival</option>
+        <option value="forest">Forest</option>
+        <option value="grave">Grave</option>
+        <option value="pilgrimage">Pilgrimage Site</option>
+        <option value="scrapyard">Scrapyard</option>
+        <option value="water">Water</option>
+        <option value="crop">Crop</option>
+        <option value="healer">Healer</option>
+        <option value="other">Other</option>
 
-    </select>
-    <br>
+      </select>
+      <br>
 
 
-    <br>
-    Title:
-    <br>
-    <input type=”text” name=”VisitorName”>
-    <br>
+      <br>
+      Title
+      <br>
+      <input type=”text” class="formInput" name=”title”>
+      <br>
 
-    <br>
-    Description of the item, size, material, duration, what it is
-    <br>
-    <textarea name=”VisitorComment” rows=”4″ cols=”20″></textarea>
+      <br>
+      Brief description
+      <br>
+      <textarea class="formInput" name=”description” rows=”4″ cols=”20″></textarea>
+      <br>
 
-    <br>
-    Upload an image:
-    <br>
-
-   
-
-    <br>
-    A point or period of time associated with an event in the lifecycle of the resource:
-    <br>
-    <input type="date" name="bday">
-    <br>
-
-
- 
-    
+      <br>
+      Upload image
+      <br>
 
     
-    <br>
-    Find A Geographic Location For The Item:
-    <br>
-    <div id="mapid" style="height: 50vh; width: 75vw; margin-left: 0px; clear: left;"></div>
-    <br>
 
-    <br>
-    Personal Information
-    <br>
+      <br>
+      Date associated with the submission
+      <br>
+      <input type="date" class="formInput" name="date">
+      <br>
 
-    Name:
-    <br>
-    <input type=”text” size=”24″ name=”VisitorName”>
-    <br>
 
-    <br>
-    Email Address (not shown):
-    <br>
-    <input type=”text” size=”24″ name=”VisitorName”>
-    <br>
-    
-    <br>    
-    <input type="submit" value="Submit">    
+  
+      
 
-  </form>
+      
+      <br>
+      Find A Geographic Location For The Item:
+      <br>
+      <small>Double click on the map below to mark a location.</small>
+      <br>
+      <div id="mapid" style="height: 50vh; width: 70vw; margin-left: 0px; clear: left;"></div>
+      <br>
+      
+
+      <br>
+      Personal Information
+      <br>
+      
+
+      <small><br>Name</small>
+      <br>
+      <input type=”text” class="formInput" name=”name”>
+      <br>
+
+      <br>
+      <small> Email address (not shown):</small>
+      <br>
+      <input type=”text” class="formInput" name=”email”>
+      <br>
+      
+      <br>    
+      <input type="submit" value="Submit">    
+
+    </form>
 
 
 
 
   <script src="map.js"></script>
+
+  <!-- <script>
+    var formData = JSON.stringify($("#myForm").serializeArray());
+    console.log(formData);
+  </script> -->
 
 
   </body>

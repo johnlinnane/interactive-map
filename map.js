@@ -55,7 +55,7 @@ L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     }
   });
 
-setTimeout(function(){$('.pointer').fadeOut('slow');},3400);
+// setTimeout(function(){$('.pointer').fadeOut('slow');},3400);
 
 
 // ******************** CREATE DEFAULT ICON ***************************************
@@ -318,7 +318,7 @@ document.getElementById("mapid").addEventListener("dblclick", function (event) {
     if (selectedMarker != null) {
         map.removeLayer(selectedMarker);
     };
-    selectedMarker = L.marker([lat, lng]).addTo(map).bindPopup("Selected Location: " + lat + ", " + lng, { offset: new L.Point(-1, -41) }).openPopup();
+    selectedMarker = L.marker([lat, lng]).addTo(map).bindPopup("You have selected this point.", { offset: new L.Point(-1, -41) }).openPopup();
 
     coordsLat = lat;
     coordsLng = lng;
