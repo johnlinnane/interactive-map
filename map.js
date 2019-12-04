@@ -4,22 +4,60 @@ if (L.Browser.ielt9) {
     alert('Please use another browser! ie. Chrome');
   }
 
-// ******************** CREATE MAP (main and submit) ***************************************
+// ******************** CREATE MAP  ***************************************
 
 
 var map = L.map('mapid', {attributionControl: false, zoomControl: false}).setView([53.309863, -7.021065], zoomInit);
 
 
-L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-    maxZoom: 18,
-    id: 'mapbox.streets',
-    accessToken: 'pk.eyJ1IjoicGFuaXN0ZXJmYXRoZXJveSIsImEiOiJjazM3bXFweTEwMGV0M3Byd2I1aDdveGd0In0.qzVbRcZ7A4NKF4mLlVHbKQ'
-}).addTo(map);
 
-map.doubleClickZoom.disable(); 
 
 new L.Control.Zoom({ position: 'bottomright' }).addTo(map);
+map.doubleClickZoom.disable(); 
+
+L.control.scale({position: 'bottomleft'}).addTo(map);
+
+
+// ******************** CREATE BASE LAYERS  ***************************************
+
+
+
+// ******** openstreetmap layer ******** WORKS
+var osm =   L.tileLayer( 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+                    subdomains: ['a','b','c']
+                });
+// osm.addTo(map);
+
+
+// ******** mapbox street layer ******** 
+var streets =   L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+                    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                    maxZoom: 18,
+                    id: 'mapbox.streets',
+                    accessToken: 'pk.eyJ1IjoicGFuaXN0ZXJmYXRoZXJveSIsImEiOiJjazM3bXFweTEwMGV0M3Byd2I1aDdveGd0In0.qzVbRcZ7A4NKF4mLlVHbKQ'
+                });
+
+streets.addTo(map);
+
+
+
+// //  ******** mapbox street map ******** API 404 not found
+// var mapboxUrl = 'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw';
+
+// var mapboxAttribution = 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+//         '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+//         'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>';
+
+// var streets   = L.tileLayer(mapboxUrl, {id: 'MapID', attribution: mapboxAttribution});
+// streets.addTo(map);
+
+
+
+
+
+
+
 
 // ******************** ICON ZOOM SIZE ***************************************
 
@@ -45,23 +83,21 @@ L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
   }).addTo(map);
 
-  var searchControl = new L.esri.Controls.Geosearch().addTo(map);
+var searchControl = new L.esri.Controls.Geosearch().addTo(map);
 
-  var results = new L.LayerGroup().addTo(map);
+var results = new L.LayerGroup().addTo(map);
 
-  searchControl.on('results', function(data){
+searchControl.on('results', function(data){
     results.clearLayers();
     for (var i = data.results.length - 1; i >= 0; i--) {
-      results.addLayer(L.marker(data.results[i].latlng));
+        results.addLayer(L.marker(data.results[i].latlng));
     }
-  });
+});
 
-// setTimeout(function(){$('.pointer').fadeOut('slow');},3400);
-
-
-// ******************** CREATE DEFAULT ICON ***************************************
+// setTimeout(function(){$('.pointer').fadeOut('slow');},3400); *******
 
 
+// ******************** CREATE TEMPLATE ICON ***************************************
 
 
 var defaultIcon = L.Icon.extend({
@@ -107,21 +143,21 @@ var siteHistLayer = L.layerGroup([
     L.marker([53.284727, -6.900387], {icon: siteHistIcon}).addTo(map).bindPopup("Scour Canal Bridge"),
     L.marker([53.350972, -7.097797], {icon: siteHistIcon}).addTo(map).bindPopup("Bullsbridge"),
     L.marker([53.367466, -7.023468], {icon: siteHistIcon}).addTo(map).bindPopup("The Woody Cross Road"),
-    L.marker([53.4487, -7.08687], {icon: siteHistIcon}).addTo(map).bindPopup("<img src='img/phils-road.png' class='popupImg'/><br>Phil's Road"),
-    L.marker([53.37604, -7.10472], {icon: siteHistIcon}).addTo(map).bindPopup("Jonestown Cross"),
-    L.marker([53.30091, -7.08897], {icon: siteHistIcon}).addTo(map).bindPopup("The Midge River"),
-    L.marker([53.31685, -7.07155], {icon: siteHistIcon}).addTo(map).bindPopup("Fan Hill"),
-    L.marker([53.33078, -7.21776], {icon: siteHistIcon}).addTo(map).bindPopup("Tubbercurry"),
-    L.marker([53.32286, -7.19883], {icon: siteHistIcon}).addTo(map).bindPopup("The Head of Tubbercurry"),
-    L.marker([53.32294, -7.18948], {icon: siteHistIcon}).addTo(map).bindPopup("The Green Road"),
-    L.marker([53.35613, -7.16853], {icon: siteHistIcon}).addTo(map).bindPopup("Fahey's Hill"),
-    L.marker([53.42247, -6.92748], {icon: siteHistIcon}).addTo(map).bindPopup("Andy's Road"),
-    L.marker([53.38683, -6.92885], {icon: siteHistIcon}).addTo(map).bindPopup("Birdy's Big House"),
-    L.marker([53.38183, -7.12014], {icon: siteHistIcon}).addTo(map).bindPopup("Jim Hills"),
-    L.marker([53.36202, -7.17163], {icon: siteHistIcon}).addTo(map).bindPopup("Judge Weightless"),
-    L.marker([53.31412, -7.12421], {icon: siteHistIcon}).addTo(map).bindPopup("Berrigan's Corner"),
-    L.marker([53.30876, -7.13468], {icon: siteHistIcon}).addTo(map).bindPopup("Blunt's Corner"),
-    L.marker([53.43955, -7.0775], {icon: siteHistIcon}).addTo(map).bindPopup("Captain Crinnon's"),
+    L.marker([53.4487, -7.08687],    {icon: siteHistIcon}).addTo(map).bindPopup("<img src='img/phils-road.png' class='popupImg'/><br>Phil's Road"),
+    L.marker([53.37604, -7.10472],   {icon: siteHistIcon}).addTo(map).bindPopup("Jonestown Cross"),
+    L.marker([53.30091, -7.08897],   {icon: siteHistIcon}).addTo(map).bindPopup("The Midge River"),
+    L.marker([53.31685, -7.07155],   {icon: siteHistIcon}).addTo(map).bindPopup("Fan Hill"),
+    L.marker([53.33078, -7.21776],   {icon: siteHistIcon}).addTo(map).bindPopup("Tubbercurry"),
+    L.marker([53.32286, -7.19883],   {icon: siteHistIcon}).addTo(map).bindPopup("The Head of Tubbercurry"),
+    L.marker([53.32294, -7.18948],   {icon: siteHistIcon}).addTo(map).bindPopup("The Green Road"),
+    L.marker([53.35613, -7.16853],   {icon: siteHistIcon}).addTo(map).bindPopup("Fahey's Hill"),
+    L.marker([53.42247, -6.92748],   {icon: siteHistIcon}).addTo(map).bindPopup("Andy's Road"),
+    L.marker([53.38683, -6.92885],   {icon: siteHistIcon}).addTo(map).bindPopup("Birdy's Big House"),
+    L.marker([53.38183, -7.12014],   {icon: siteHistIcon}).addTo(map).bindPopup("Jim Hills"),
+    L.marker([53.36202, -7.17163],   {icon: siteHistIcon}).addTo(map).bindPopup("Judge Weightless"),
+    L.marker([53.31412, -7.12421],   {icon: siteHistIcon}).addTo(map).bindPopup("Berrigan's Corner"),
+    L.marker([53.30876, -7.13468],   {icon: siteHistIcon}).addTo(map).bindPopup("Blunt's Corner"),
+    L.marker([53.43955, -7.0775],    {icon: siteHistIcon}).addTo(map).bindPopup("Captain Crinnon's"),
 
 ]);
 
@@ -187,46 +223,33 @@ var healerLayer = L.layerGroup([
 ]);
 
 
+// ********************* SHOW THESE LAYERS ON LOAD **************************************
 
 
-// ********************* BASE LAYERS AND OVERLAYS **************************************
+map.addLayer(siteLayer);
+map.addLayer(siteHistLayer);
+map.addLayer(siteUnoffLayer);
+map.addLayer(bogLayer);
+map.addLayer(churchLayer);
+map.addLayer(dumpLayer);
+map.addLayer(festivalLayer);
+map.addLayer(forestLayer);
+map.addLayer(graveLayer);
+map.addLayer(pilgrimageLayer);
+map.addLayer(scrapyardLayer);
+map.addLayer(waterLayer);
+map.addLayer(cropLayer);
+map.addLayer(healerLayer);
 
 
-
-// var holyMarkers = L.layerGroup([littleton, denver]);
-// var siteContemporary = L.layerGroup([littleton, denver]);
-// var siteHistorical = L.layerGroup([littleton, denver]);
-// var siteUnofficial = L.layerGroup([littleton, denver]);
-// var scrapyard = L.layerGroup([littleton, denver]); 
-// var forest = L.layerGroup([littleton, denver]);
-// var springWater = L.layerGroup([littleton, denver]);
-// var bog = L.layerGroup([littleton, denver]);
-// var dump = L.layerGroup([littleton, denver]);
-// var crops = L.layerGroup([littleton, denver]);
-// var healer = L.layerGroup([littleton, denver]);
-// var pilgrimageSite = L.layerGroup([littleton, denver]); 
-// var festival = L.layerGroup([littleton, denver]); 
-// var church = L.layerGroup([littleton, denver]); 
-// var graveyard = L.layerGroup([littleton, denver]);
-
-
-var mapboxUrl = 'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw';
-var mapboxAttribution = 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-        '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-        'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>';
-
-
-var osm = L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png");
-var streets   = L.tileLayer(mapboxUrl, {id: 'MapID', attribution: mapboxAttribution});
-
+// ********************* ADD LAYERS TO LAYER CONTROL  **************************************
 
 
 
 var baseMaps = {
-    "Ordnance Survey": osm,
-    "Streets": streets
+    "Physical Feature Map": osm,
+    "Road Map": streets
 };
-
 
 var overlayMaps = {
     "Contemporary Site": siteLayer,
@@ -247,27 +270,7 @@ var overlayMaps = {
 
 L.control.layers(baseMaps, overlayMaps, {collapsed:true}).addTo(map);
 
-osm.addTo(map);
 
-L.control.scale({position: 'bottomleft'}).addTo(map);
-
-// ********************* SHOW OVERLAY ON LOAD **************************************
-
-
-map.addLayer(siteLayer);
-map.addLayer(siteHistLayer);
-map.addLayer(siteUnoffLayer);
-map.addLayer(bogLayer);
-map.addLayer(churchLayer);
-map.addLayer(dumpLayer);
-map.addLayer(festivalLayer);
-map.addLayer(forestLayer);
-map.addLayer(graveLayer);
-map.addLayer(pilgrimageLayer);
-map.addLayer(scrapyardLayer);
-map.addLayer(waterLayer);
-map.addLayer(cropLayer);
-map.addLayer(healerLayer);
 
 // ********************* CREATE LEGEND **************************************
 
