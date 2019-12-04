@@ -1,11 +1,12 @@
 
+
 body {
     background-color: rgb(211, 226, 233);
     text-align: left;
   }
 
 select {
-  width: 70vw;
+  width: var(--formWidth);
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
@@ -16,12 +17,12 @@ select {
 
 .formInput {
   background-color: rgb(255, 255, 255);
-  width: 70vw;
+  width: var(--formWidth);
   border: none;
 }
 
 .ui-slider  {
-  width: 70vw;
+  width: var(--formWidth);
 }
 
 #description {
@@ -29,7 +30,7 @@ select {
 }
 
 input[type=submit] {
-  width: 70vw;
+  width: var(--formWidth);
   background-color: #4CAF50;
   color: white;
   padding: 14px 20px;
@@ -44,14 +45,14 @@ input[type=submit]:hover {
 }
 
 hr {
-  width: 70vw;
+  width: var(--formWidth);
   text-align:left;
   margin-left:0
 }
 
 #mapid { 
   height: 85vh; 
-  width: 70vw;
+  width: 55vh;
   margin: auto;
 
 }

@@ -27,7 +27,7 @@ var osm =   L.tileLayer( 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
                     subdomains: ['a','b','c']
                 });
-// osm.addTo(map);
+osm.addTo(map);
 
 
 // ******** mapbox street layer ******** 
@@ -38,7 +38,7 @@ var streets =   L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.pn
                     accessToken: 'pk.eyJ1IjoicGFuaXN0ZXJmYXRoZXJveSIsImEiOiJjazM3bXFweTEwMGV0M3Byd2I1aDdveGd0In0.qzVbRcZ7A4NKF4mLlVHbKQ'
                 });
 
-streets.addTo(map);
+// streets.addTo(map);
 
 
 
@@ -143,7 +143,7 @@ var siteHistLayer = L.layerGroup([
     L.marker([53.284727, -6.900387], {icon: siteHistIcon}).addTo(map).bindPopup("Scour Canal Bridge"),
     L.marker([53.350972, -7.097797], {icon: siteHistIcon}).addTo(map).bindPopup("Bullsbridge"),
     L.marker([53.367466, -7.023468], {icon: siteHistIcon}).addTo(map).bindPopup("The Woody Cross Road"),
-    L.marker([53.4487, -7.08687],    {icon: siteHistIcon}).addTo(map).bindPopup("<img src='img/phils-road.png' class='popupImg'/><br>Phil's Road"),
+    L.marker([53.4487, -7.08687],    {icon: siteHistIcon}).addTo(map).bindPopup("<img src='img/phils-road.png' class='popupImg'/><br>Phil's Road").bindTooltip("Click to see image", {direction: 'right', offset: [15, 0]}).openTooltip(),
     L.marker([53.37604, -7.10472],   {icon: siteHistIcon}).addTo(map).bindPopup("Jonestown Cross"),
     L.marker([53.30091, -7.08897],   {icon: siteHistIcon}).addTo(map).bindPopup("The Midge River"),
     L.marker([53.31685, -7.07155],   {icon: siteHistIcon}).addTo(map).bindPopup("Fan Hill"),
@@ -336,7 +336,7 @@ document.getElementById("mapid").addEventListener("dblclick", function (event) {
     if (selectedMarker != null) {
         map.removeLayer(selectedMarker);
     };
-    selectedMarker = L.marker([lat, lng]).addTo(map).bindPopup("You have selected this point. <br>Double click another location to change your selection", { offset: new L.Point(-1, -41) }).openPopup();
+    selectedMarker = L.marker([lat, lng]).addTo(map).bindPopup("You have selected this point. <br>Yo change your selection, double click another location.", { offset: [0,-5] }).openPopup();
 
     coordsLat = lat;
     coordsLng = lng;

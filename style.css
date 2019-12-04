@@ -4,6 +4,10 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+:root {
+  --formWidth: 55vw;
+}
+
 .leaflet-popup-content-wrapper .leaflet-popup-content {
   text-align: center;
 }
