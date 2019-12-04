@@ -18,8 +18,14 @@ select {
   background-color: rgb(255, 255, 255);
   width: 70vw;
   border: none;
+}
 
+.ui-slider  {
+  width: 70vw;
+}
 
+#description {
+  height: 50px;
 }
 
 input[type=submit] {
@@ -35,4 +41,17 @@ input[type=submit] {
 
 input[type=submit]:hover {
   background-color: #45a049;
+}
+
+hr {
+  width: 70vw;
+  text-align:left;
+  margin-left:0
+}
+
+#mapid { 
+  height: 85vh; 
+  width: 70vw;
+  margin: auto;
+
 }

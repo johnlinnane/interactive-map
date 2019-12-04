@@ -4,14 +4,11 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-
-
-#mapid { 
-    height: 85vh; 
-    width: 70vw;
-    margin: auto;
-
+.leaflet-popup-content-wrapper .leaflet-popup-content {
+  text-align: center;
 }
 
-
+img.popupImg {
+  width: 30vw;
+}
 

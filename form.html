@@ -9,7 +9,6 @@
     integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
     crossorigin=""/>  
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="style-form.css" />
 
 
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
@@ -26,15 +25,43 @@
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/esri-leaflet-geocoder/2.2.14/esri-leaflet-geocoder.js"></script> -->
     <script src="https://cdn-geoweb.s3.amazonaws.com/esri-leaflet-geocoder/0.0.1-beta.5/esri-leaflet-geocoder.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn-geoweb.s3.amazonaws.com/esri-leaflet-geocoder/0.0.1-beta.5/esri-leaflet-geocoder.css">
-  
+    
 
+    <!-- jQuery slider -->
+    <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js" 
+            integrity="sha256-0YPKAwZP7Mp3ALMRVB2i8GXeEndvCq3eSl/WsAl1Ryk=" 
+            crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="style-form.css" />
+
+    <script>
+    var d = new Date();
+    
+    $( function() {
+      $( "#slider-range" ).slider({
+        range: true,
+        min: 1550,
+        max: d.getFullYear(),
+        values: [ 1970, 2005 ],
+        slide: function( event, ui ) {
+          $( "#years" ).val( ui.values[ 0 ] + " - " + ui.values[ 1 ] );
+        }
+      });
+      $( "#years" ).val( $( "#slider-range" ).slider( "values", 0 ) +
+        " - " + $( "#slider-range" ).slider( "values", 1 ) );
+    } );
+    </script>
 
   </head>
 
 
 
   <body>
-    <form id="myForm"  name="myemailform" action=”form-to-email.php” method=”POST”>
+    <form id="myForm"  name="myemailform" action='form-to-email.php' method=”POST”>
 
       <br>
       What type of item do you want to contribute? 
@@ -69,23 +96,36 @@
       <br>
       Brief description
       <br>
-      <textarea class="formInput" name=”description” rows=”4″ cols=”20″></textarea>
+      <textarea class="formInput" id="description" name=”description”></textarea>
       <br>
+      <br>
+
+      <hr>
 
       <br>
       Upload image
       <br>
-
-    
+      <input type="file" name="fileToUpload" id="fileToUpload">
+      <br>
+      <br>
+      
+      <hr>
 
       <br>
-      Date associated with the submission
-      <br>
-      <input type="date" class="formInput" name="date">
+      <!-- <input type="date" class="formInput" name="date"> -->
+
+      <p>
+        <label for="years">Time associated with the submission</label>
+        <input type="text" id="years" readonly style="border:0; color:#f6931f; font-weight:bold;">
+      </p>
+      <small>Drag the sliders to change the year.</small><br />
+
+      <div id="slider-range"></div>
+
       <br>
 
 
-  
+      <hr>
       
 
       

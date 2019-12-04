@@ -7,7 +7,7 @@ if (L.Browser.ielt9) {
 // ******************** CREATE MAP (main and submit) ***************************************
 
 
-var map = L.map('mapid', {attributionControl: false}).setView([53.309863, -7.021065], zoomInit);
+var map = L.map('mapid', {attributionControl: false, zoomControl: false}).setView([53.309863, -7.021065], zoomInit);
 
 
 L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
@@ -19,6 +19,7 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 
 map.doubleClickZoom.disable(); 
 
+new L.Control.Zoom({ position: 'bottomright' }).addTo(map);
 
 // ******************** ICON ZOOM SIZE ***************************************
 
@@ -70,7 +71,7 @@ var defaultIcon = L.Icon.extend({
         // shadowSize:   [50, 64],
         iconAnchor:   [iconSize/2, iconSize/2],             // point of the icon which will correspond to marker's location
         // shadowAnchor: [4, 62],
-        popupAnchor:  [iconSize/2, iconSize/2]              // point from which the popup should open relative to the iconAnchor
+        popupAnchor:  [0, -10]              // point from which the popup should open relative to the iconAnchor
     }
 });
 
@@ -101,12 +102,27 @@ var siteLayer = L.layerGroup([
 
 // historical sites layer
 var siteHistLayer = L.layerGroup([
-    L.marker([53.295209, -7.074218], {icon: siteHistIcon}).addTo(map).bindPopup("I am a wagon."),
     L.marker([53.243657, -6.971283], {icon: siteHistIcon}).addTo(map).bindPopup("<b>The Nine Mile Road</b><br><a href='info.html'>Click Here</a>"),
     L.marker([53.343184, -6.959953], {icon: siteHistIcon}).addTo(map).bindPopup("Pinkeen Road"),
-    L.marker([53.284727, -6.900387], {icon: siteHistIcon}).addTo(map).bindPopup("Scour Bridge Canal"),
+    L.marker([53.284727, -6.900387], {icon: siteHistIcon}).addTo(map).bindPopup("Scour Canal Bridge"),
     L.marker([53.350972, -7.097797], {icon: siteHistIcon}).addTo(map).bindPopup("Bullsbridge"),
-    L.marker([53.367466, -7.023468], {icon: siteHistIcon}).addTo(map).bindPopup("The Woody Cross Road")
+    L.marker([53.367466, -7.023468], {icon: siteHistIcon}).addTo(map).bindPopup("The Woody Cross Road"),
+    L.marker([53.4487, -7.08687], {icon: siteHistIcon}).addTo(map).bindPopup("<img src='img/phils-road.png' class='popupImg'/><br>Phil's Road"),
+    L.marker([53.37604, -7.10472], {icon: siteHistIcon}).addTo(map).bindPopup("Jonestown Cross"),
+    L.marker([53.30091, -7.08897], {icon: siteHistIcon}).addTo(map).bindPopup("The Midge River"),
+    L.marker([53.31685, -7.07155], {icon: siteHistIcon}).addTo(map).bindPopup("Fan Hill"),
+    L.marker([53.33078, -7.21776], {icon: siteHistIcon}).addTo(map).bindPopup("Tubbercurry"),
+    L.marker([53.32286, -7.19883], {icon: siteHistIcon}).addTo(map).bindPopup("The Head of Tubbercurry"),
+    L.marker([53.32294, -7.18948], {icon: siteHistIcon}).addTo(map).bindPopup("The Green Road"),
+    L.marker([53.35613, -7.16853], {icon: siteHistIcon}).addTo(map).bindPopup("Fahey's Hill"),
+    L.marker([53.42247, -6.92748], {icon: siteHistIcon}).addTo(map).bindPopup("Andy's Road"),
+    L.marker([53.38683, -6.92885], {icon: siteHistIcon}).addTo(map).bindPopup("Birdy's Big House"),
+    L.marker([53.38183, -7.12014], {icon: siteHistIcon}).addTo(map).bindPopup("Jim Hills"),
+    L.marker([53.36202, -7.17163], {icon: siteHistIcon}).addTo(map).bindPopup("Judge Weightless"),
+    L.marker([53.31412, -7.12421], {icon: siteHistIcon}).addTo(map).bindPopup("Berrigan's Corner"),
+    L.marker([53.30876, -7.13468], {icon: siteHistIcon}).addTo(map).bindPopup("Blunt's Corner"),
+    L.marker([53.43955, -7.0775], {icon: siteHistIcon}).addTo(map).bindPopup("Captain Crinnon's"),
+
 ]);
 
 // unofficial sites layer
@@ -229,11 +245,11 @@ var overlayMaps = {
     "Healer": healerLayer
 };
 
-L.control.layers(baseMaps, overlayMaps, {collapsed:false}).addTo(map);
+L.control.layers(baseMaps, overlayMaps, {collapsed:true}).addTo(map);
 
 osm.addTo(map);
 
-L.control.scale().addTo(map);
+L.control.scale({position: 'bottomleft'}).addTo(map);
 
 // ********************* SHOW OVERLAY ON LOAD **************************************
 
@@ -277,8 +293,8 @@ map.addLayer(healerLayer);
 
 // ********************* STATE INFO PANEL **************************************
 
-
-    // control that shows state info on hover
+/*
+// control that shows state info on hover
 var info = L.control();
 
 info.onAdd = function (map) {
@@ -295,9 +311,8 @@ info.update = function (props) {
     this._div.innerHTML = '<h4>Traveller Map</h4>';
 };
 
-info.addTo(map);
-
-
+info.addTo(map);    
+*/
 
 
 
@@ -318,7 +333,7 @@ document.getElementById("mapid").addEventListener("dblclick", function (event) {
     if (selectedMarker != null) {
         map.removeLayer(selectedMarker);
     };
-    selectedMarker = L.marker([lat, lng]).addTo(map).bindPopup("You have selected this point.", { offset: new L.Point(-1, -41) }).openPopup();
+    selectedMarker = L.marker([lat, lng]).addTo(map).bindPopup("You have selected this point. <br>Double click another location to change your selection", { offset: new L.Point(-1, -41) }).openPopup();
 
     coordsLat = lat;
     coordsLng = lng;
