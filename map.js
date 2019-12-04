@@ -336,7 +336,7 @@ document.getElementById("mapid").addEventListener("dblclick", function (event) {
     if (selectedMarker != null) {
         map.removeLayer(selectedMarker);
     };
-    selectedMarker = L.marker([lat, lng]).addTo(map).bindPopup("You have selected this point. <br>Yo change your selection, double click another location.", { offset: [0,-5] }).openPopup();
+    selectedMarker = L.marker([lat, lng]).addTo(map).bindPopup("You have selected this point. <br>To change your selection, double click another location.", { offset: [0,-5] }).openPopup();
 
     coordsLat = lat;
     coordsLng = lng;
