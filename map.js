@@ -27,7 +27,7 @@ var osm =   L.tileLayer( 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
                     subdomains: ['a','b','c']
                 });
-osm.addTo(map);
+// osm.addTo(map);
 
 
 // ******** mapbox street layer ******** 
@@ -38,7 +38,7 @@ var streets =   L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.pn
                     accessToken: 'pk.eyJ1IjoicGFuaXN0ZXJmYXRoZXJveSIsImEiOiJjazM3bXFweTEwMGV0M3Byd2I1aDdveGd0In0.qzVbRcZ7A4NKF4mLlVHbKQ'
                 });
 
-// streets.addTo(map);
+streets.addTo(map);
 
 
 
