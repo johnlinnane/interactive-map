@@ -247,8 +247,8 @@ map.addLayer(healerLayer);
 
 
 var baseMaps = {
-    "Physical Feature Map": osm,
-    "Road Map": streets
+    "Road Map": streets,
+    "Physical Feature Map": osm
 };
 
 var overlayMaps = {
