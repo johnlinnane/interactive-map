@@ -31,6 +31,10 @@ table {
     border-radius: 6px;
 }
 
+td {
+    padding-left: 6px;
+}
+
 table img {
     width: 20px; 
 }
