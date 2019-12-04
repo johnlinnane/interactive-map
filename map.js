@@ -54,8 +54,12 @@ streets.addTo(map);
 
 
 
+var googleSat = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{
+                    maxZoom: 20,
+                    subdomains:['mt0','mt1','mt2','mt3']
+                });
 
-
+// googleSat.addTo(map);
 
 
 
@@ -248,7 +252,8 @@ map.addLayer(healerLayer);
 
 var baseMaps = {
     "Road Map": streets,
-    "Physical Feature Map": osm
+    "Physical Feature Map": osm,
+    "Sattelite": googleSat
 };
 
 var overlayMaps = {
