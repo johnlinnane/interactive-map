@@ -60,7 +60,10 @@
 
 
 
+
   <body>
+
+  <div id="formContainer">
     <form id="myForm"  name="myemailform" action='form-to-email.php' method=”POST”>
 
       <br>
@@ -130,13 +133,20 @@
 
       
       <br>
-      Find A Geographic Location For The Item:
+      Find A Geographic Location For The Item:    
+
       <br>
       <small>Double click on the map below to mark a location.</small>
       <br>
-      <div id="mapid" style="height: 50vh; width: var(--formWidth); margin-left: 0px; clear: left;"></div>
+      <div id="mapContiner">
+        <div id="mapid" style="height: 50vh; width: var(--formWidth); margin-left: 0px; clear: left;">
+        </div>
+        <div id="buttonDiv">
+          <input type="button" style="width:100%;" value="Centre Map on Your Current Position" onclick="getLocation()">
+        </div>
+      </div>
+      <br/> 
       <br>
-      
 
       <br>
       Personal Information
@@ -163,6 +173,8 @@
     <a href="index.html" class="button" target="_blank">Back To Map</a>
   </div>
   
+</div> <!-- end formContainer div -->
+
 
   <script src="map.js"></script>
   <script src="get-coords.js"></script>

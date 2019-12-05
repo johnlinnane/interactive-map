@@ -5,7 +5,7 @@ body {
 }
 
 :root {
-  --formWidth: 55vw;
+  --formWidth: 100%;
 }
 
 .leaflet-popup-content-wrapper .leaflet-popup-content {
@@ -32,7 +32,5 @@ a.button {
   font-size: 13px;
   margin: 4px 2px;
   border-radius: 6px;
-
-
 }
 

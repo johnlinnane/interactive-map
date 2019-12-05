@@ -5,6 +5,10 @@ body {
     text-align: left;
   }
 
+#formContainer {
+  width: 55vw;
+}
+
 select {
   width: var(--formWidth);
   padding: 12px 20px;
@@ -50,9 +54,8 @@ hr {
   margin-left:0
 }
 
-#mapid { 
-  height: 85vh; 
-  width: 55vh;
-  margin: auto;
 
+#mapid { 
+  margin: auto; 
 }
+

@@ -22,3 +22,16 @@ document.getElementById("mapid").addEventListener("dblclick", function addMarker
     coordsLng = lng;
     console.log(lat + ', ' + lng);
 });
+
+function getLocation() {
+    if ("geolocation" in navigator) {
+        console.log('Geolocation is Enabled');
+        navigator.geolocation.getCurrentPosition(function(position) {
+            console.log(position.coords.latitude);
+            console.log(position.coords.longitude);
+            map.setView([position.coords.latitude, position.coords.longitude], 18);
+        });
+    } else {
+    console.log('Geolocation is not enabled');
+    }
+}
