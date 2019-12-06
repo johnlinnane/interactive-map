@@ -67,7 +67,7 @@ var googleSat = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',
 
 var iconSize = 40;
 var zoom = map.getZoom();
-console.log(zoom);
+console.log('Map zoom level: ' + zoom);
 
 
 map.on('zoomend', function() {
@@ -78,7 +78,7 @@ map.on('zoomend', function() {
     } else {
         iconSize = 10;
     }
-    console.log(iconSize);
+    console.log('Icon size: ' + iconSize);
 });
 
 // ******************** SEARCH BAR ***************************************
@@ -147,7 +147,7 @@ var siteHistLayer = L.layerGroup([
     L.marker([53.284727, -6.900387], {icon: siteHistIcon}).addTo(map).bindPopup("Scour Canal Bridge"),
     L.marker([53.350972, -7.097797], {icon: siteHistIcon}).addTo(map).bindPopup("Bullsbridge"),
     L.marker([53.367466, -7.023468], {icon: siteHistIcon}).addTo(map).bindPopup("The Woody Cross Road"),
-    L.marker([53.4487, -7.08687],    {icon: siteHistIcon}).addTo(map).bindPopup("<img src='img/phils-road.png' class='popupImg'/><br>Phil's Road").bindTooltip("Click to see image", {direction: 'right', offset: [15, 0]}).openTooltip(),
+    L.marker([53.4487, -7.08687],    {icon: siteHistIcon}).addTo(map).bindPopup("<img src='img/phils-road.png' class='popupImg'/><br>Phil's Road").bindTooltip("Click icon see image", {direction: 'right', offset: [15, 0]}).openTooltip(),
     L.marker([53.37604, -7.10472],   {icon: siteHistIcon}).addTo(map).bindPopup("Jonestown Cross"),
     L.marker([53.30091, -7.08897],   {icon: siteHistIcon}).addTo(map).bindPopup("The Midge River"),
     L.marker([53.31685, -7.07155],   {icon: siteHistIcon}).addTo(map).bindPopup("Fan Hill"),

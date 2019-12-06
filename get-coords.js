@@ -20,7 +20,8 @@ document.getElementById("mapid").addEventListener("dblclick", function addMarker
 
     coordsLat = lat;
     coordsLng = lng;
-    console.log(lat + ', ' + lng);
+    console.log('Chosen coordinates: ' + lat + ', ' + lng);
+    document.getElementById('coordHidden').value = coordsLat + ', ' + coordsLng;
 });
 
 function getLocation() {
@@ -35,3 +36,6 @@ function getLocation() {
     console.log('Geolocation is not enabled');
     }
 }
+
+
+

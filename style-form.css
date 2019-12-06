@@ -5,8 +5,12 @@ body {
     text-align: left;
   }
 
+
+
 #formContainer {
   width: 55vw;
+  overflow: hidden;
+  
 }
 
 select {
