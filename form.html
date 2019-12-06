@@ -5,39 +5,29 @@
   <head>
     <meta charset="UTF-8">
     <title>Submit an Item</title>
+
+    <!-- ADD STYLESHEETS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
-    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-    crossorigin=""/>  
+          integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+          crossorigin=""/>  
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn-geoweb.s3.amazonaws.com/esri-leaflet-geocoder/0.0.1-beta.5/esri-leaflet-geocoder.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+    <link rel="stylesheet" href="style-form.css" />
 
 
+    <!-- ADD SCRIPTS -->
     <script language="JavaScript" src="scripts/gen_validatorv31.js" type="text/javascript"></script>
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
-    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
-    crossorigin=""></script>
-
+            integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+            crossorigin=""></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-
-
-
-
-    <!-- <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script> -->
     <script src="https://cdn-geoweb.s3.amazonaws.com/esri-leaflet/0.0.1-beta.5/esri-leaflet.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/esri-leaflet-geocoder/2.2.14/esri-leaflet-geocoder.js"></script> -->
     <script src="https://cdn-geoweb.s3.amazonaws.com/esri-leaflet-geocoder/0.0.1-beta.5/esri-leaflet-geocoder.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdn-geoweb.s3.amazonaws.com/esri-leaflet-geocoder/0.0.1-beta.5/esri-leaflet-geocoder.css">
-    
-
-    <!-- jQuery slider -->
-    <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
     <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js" 
             integrity="sha256-0YPKAwZP7Mp3ALMRVB2i8GXeEndvCq3eSl/WsAl1Ryk=" 
             crossorigin="anonymous"></script>
-
-    <link rel="stylesheet" href="style-form.css" />
 
     <script>
       var d = new Date();
@@ -65,136 +55,121 @@
 
   <body>
 
-  <div id="leftSpace">.</div>
+    <div id="leftSpace">.      
+    </div>
 
-  <div id="formContainer"> 
-    <form id="myForm" method="post" name="myemailform" action="form-to-email.php">
-
-
-      <br>
-      What type of item do you want to contribute? 
-      <br>
-      <select  class="formInput" name="type">
-        <option value="site">Site</option>
-        <option value="siteHist">Historical Site</option>
-        <option value="siteUnoff">Unofficial Site</option>
-        <option value="bog">Bog</option>
-        <option value="church">Church</option>
-        <option value="dump">Dump</option>
-        <option value="festival">Festival</option>
-        <option value="forest">Forest</option>
-        <option value="grave">Grave</option>
-        <option value="pilgrimage">Pilgrimage Site</option>
-        <option value="scrapyard">Scrapyard</option>
-        <option value="water">Water</option>
-        <option value="crop">Crop</option>
-        <option value="healer">Healer</option>
-        <option value="other">Other</option>
-
-      </select>
-      <br>
+    <div id="formContainer"> 
+      <form id="myForm" method="post" name="myemailform" action="form-to-email.php" enctype="multipart/form-data">
 
 
-      <br>
-      Title
-      <br>
-      <input type="text" class="formInput" name="title">
-      <br>
-
-      <br>
-      Brief description
-      <br>
-      <textarea class="formInput" id="description" name="description"></textarea>
-      <br>
-      <br>
-
-      <hr>
-
-      <br>
-      Upload image
-      <br>
-      <input type="file" name="fileToUpload" id="fileToUpload">
-      <br>
-      <br>
-      
-      <hr>
-
-      <br>
-
-      <p>
-        <label for="years">Time associated with the submission</label>
-        <input type="hidden" id="sliderHidden" name="sliderHidden">
-        <input type="text" id="years" readonly style="border:0; color:#1f58f6fa; font-weight:bold;">
-      </p>
-      <small>Drag the sliders to change the year.</small><br />
-
-      <div id="sliderDiv"></div>
-
-      <br>
+        <br>
+        What type of item do you want to contribute? 
+        <br>
+        <select class="formInput" name="type">
+          <option value="site">Site</option>
+          <option value="siteHist">Historical Site</option>
+          <option value="siteUnoff">Unofficial Site</option>
+          <option value="bog">Bog</option>
+          <option value="church">Church</option>
+          <option value="dump">Dump</option>
+          <option value="festival">Festival</option>
+          <option value="forest">Forest</option>
+          <option value="grave">Grave</option>
+          <option value="pilgrimage">Pilgrimage Site</option>
+          <option value="scrapyard">Scrapyard</option>
+          <option value="water">Water</option>
+          <option value="crop">Crop</option>
+          <option value="healer">Healer</option>
+          <option value="other">Other</option>
+        </select>
+        <br>
 
 
-      <hr>
-      
-      <p>
-        <input type="hidden" id="coordHidden" name="coordHidden">
-      </p>
-      
-      <br>
-      Find A Geographic Location For The Item:    
+        <br>
+        Title
+        <br>
+        <input type="text" class="formInput" name="title">
+        <br>
 
-      <br>
-      <small>Double click on the map below to mark a location.</small>
-      <br>
-      <div id="mapContiner">
-        <div id="mapid" style="height: 50vh; width: var(--formWidth); margin-left: 0px; clear: left;">
+        <br>
+        Brief description
+        <br>
+        <textarea class="formInput" id="description" name="description"></textarea>
+        <br>
+        <br>
+
+        <hr>
+
+        <!-- <form action="upload.php" method="post" enctype="multipart/form-data"> -->
+
+        <br>
+        Upload image
+        <br>
+        <input type="file" name="fileToUpload" id="fileToUpload">
+        <br>
+        <br>
+
+        <hr>
+
+        <br>
+        <p>
+          <label for="years">Time associated with the submission</label>
+          <input type="hidden" id="sliderHidden" name="sliderHidden">
+          <input type="text" id="years" readonly style="border:0; color:#1f58f6fa; font-weight:bold;">
+        </p>
+        <small>Drag the sliders to change the year.</small><br />
+        <div id="sliderDiv"></div>
+        <br>
+
+        <hr>
+        
+        <p>
+          <input type="hidden" id="coordHidden" name="coordHidden">
+        </p>
+        
+        <br>
+        Find A Geographic Location For The Item:    
+        <br>
+        <small>Double click on the map below to mark a location.</small>
+        <br>
+        <div id="mapContiner">
+          <div id="mapid" style="height: 50vh; width: var(--formWidth); margin-left: 0px; clear: left;">
+          </div>
+          <div id="buttonDiv">
+            <input type="button" style="width:100%;" value="Centre Map on Your Current Position" onclick="getLocation()">
+          </div>
         </div>
-        <div id="buttonDiv">
-          <input type="button" style="width:100%;" value="Centre Map on Your Current Position" onclick="getLocation()">
-        </div>
-      </div>
-      <br/> 
-      <br>
+        <br/> 
+        <br>
 
- 
+        <br>
+        Personal Information
+        <br>
+        <small><br>Name</small>
+        <br>
+        <input type="text" id="name" class="formInput" name="name" >
+        <br>
+
+        <br>
+        <small> Email address (not shown):</small>
+        <br>
+        <input type="text" class="formInput" name="email">
+        <br>
+        
+        <br>    
+        <input type="submit" name="submit" value="Submit">    
+
+      </form>
+
+      <div style="width: var(--formWidth); text-align: center; padding: 20px">
+        <a href="index.html" class="button" target="_blank">Back To Map</a>
+      </div> <!-- end index link div -->
     
-
-      <br>
-      Personal Information
-      <br>
-      
-
-      <small><br>Name</small>
-      <br>
-      <input type="text" id="name" class="formInput" name="name" >
-      <br>
-
-      <br>
-      <small> Email address (not shown):</small>
-      <br>
-      <input type="text" class="formInput" name="email">
-      <br>
-      
-      <br>    
-      <input type="submit" name="submit" value="Submit">    
-
-    </form>
-
-  <div style="width: var(--formWidth); text-align: center; padding: 20px">
-    <a href="index.html" class="button" target="_blank">Back To Map</a>
-  </div> <!-- end index link div -->
-  
-</div> <!-- end formContainer div -->
+    </div> <!-- end formContainer div -->
 
 
-  <script src="map.js"></script>
-  <script src="get-coords.js"></script>
-
-
-  <!-- <script>
-    var formData = JSON.stringify($("#myForm").serializeArray());
-    console.log(formData);
-  </script> -->
-
+    <script src="map.js"></script>
+    <script src="get-coords.js"></script>
 
     <script>
       var frmvalidator  = new Validator("myemailform");
@@ -202,13 +177,6 @@
       frmvalidator.addValidation("email","req","Please provide your email");
       frmvalidator.addValidation("email","email","Please enter a valid email address");
     </script>
-
-
-    <script>
-
-    </script>
-
-
 
   </body>
 </html>
