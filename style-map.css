@@ -1,34 +1,48 @@
 
-
 body {
     text-align: left;
 }
 
-
-
-#container {
+#wrapper {
     width: 95%;
     margin: auto;
+    margin-bottom: 150px;
 
 }
-
 
 #mapid { 
     height: 85vh; 
     width: 70vw;
     float: left;
+    margin-right: 15px;
+
+
 }
 
-#keyBlock {
+
+
+
+#tableDiv {
     float: left;
-    padding-left: 15px;
-
+    text-align: left;
 }
+
+#submitDiv {
+    display: inline-block;
+}
+
+#submitButton {
+    padding: 10px 0px;
+    margin: 10px 0px;
+}
+
+/* TABLE STUFF */
 
 table {
     font-size: 13px;
-    background-color: #ffffff;
+    background-color: #d3ebdf;
     border-radius: 6px;
+    display: inline-block
 }
 
 td {

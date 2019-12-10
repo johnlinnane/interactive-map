@@ -27,89 +27,109 @@
   
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
-</head>
+  </head>
   
   
   <body>
 
-  <div id="leftSpace">.</div>
-
-    <div id="container">
-      <div id="mapid"></div>
-
-
-
-      <div id="keyBlock" class="tg-wrap">
-        <table>
-          <tr>
-            <td><img src="icons/site.png"></td>
-            <td>Contemporary Site</td>
-          </tr>
-          <tr>
-            <td><img src="icons/wagon-colour.png"></td>
-            <td>Historical Site</td>
-          </tr>
-          <tr>
-            <td><img src="icons/site-unoff.png"></td>
-            <td>Unofficial Site</td>
-          </tr>
-          <tr>
-            <td><img src="icons/bog.png"></td>
-            <td>Bog</td>
-          </tr>
-          <tr>
-            <td><img src="icons/church.png"></td>
-            <td>Church</td>
-          </tr>
-          <tr>
-            <td><img src="icons/dump.png"></td>
-            <td>Dump</td>
-          </tr>
-          <tr>
-            <td><img src="icons/festival.png"></td>
-            <td>Festival</td>
-          </tr>
-          <tr>
-            <td><img src="icons/forest.png"></td>
-            <td>Forest</td>
-          </tr>
-          <tr>
-            <td><img src="icons/grave.png"></td>
-            <td>Graveyard</td>
-          </tr>
-          <tr>
-            <td><img src="icons/pilgrimage.png"></td>
-            <td>Pilgrimage Site</td>
-          </tr>
-          <tr>
-            <td><img src="icons/scrapyard.png"></td>
-            <td>Scrapyard</td>
-          </tr>
-          <tr>
-            <td><img src="icons/water.png"></td>
-            <td>Water Source</td>
-          </tr>
-          <tr>
-            <td><img src="icons/crop.png"></td>
-            <td>Crop</td>
-          </tr>
-          <tr>
-            <td><img src="icons/healer.png"></td>
-            <td>Healer</td>
-          </tr>
-        </table>
-      </div>
+    <div class="header">Traveller Collection
     </div>
-    <div style="clear: both;"></div>
 
-    <br>
-    <div style="text-align: center; width: 70vw;">
-      <!-- <a href="form.html" target="_blank">Submit an item</a> -->
-    <a href="form.html" class="button" target="_blank">Submit an Item</a>
-  </div>
+    <div id="leftSpace">.
+    </div>
 
+    <div id="wrapper">
+
+      <div id="mapid">
+      </div>
+
+      <div id="infoPanel">
+
+        <div id="tableDiv"  class="tg-wrap">
+          <table> 
+            <tr>
+              <td><img src="icons/site.png"></td>
+              <td>Contemporary Site</td>
+            </tr>
+            <tr>
+              <td><img src="icons/wagon-colour.png"></td>
+              <td>Historical Site</td>
+            </tr>
+            <tr>
+              <td><img src="icons/site-unoff.png"></td>
+              <td>Unofficial Site</td>
+            </tr>
+            <tr>
+              <td><img src="icons/bog.png"></td>
+              <td>Bog</td>
+            </tr>
+            <tr>
+              <td><img src="icons/church.png"></td>
+              <td>Church</td>
+            </tr>
+            <tr>
+              <td><img src="icons/dump.png"></td>
+              <td>Dump</td>
+            </tr>
+            <tr>
+              <td><img src="icons/festival.png"></td>
+              <td>Festival</td>
+            </tr>
+            <tr>
+              <td><img src="icons/forest.png"></td>
+              <td>Forest</td>
+            </tr>
+            <tr>
+              <td><img src="icons/grave.png"></td>
+              <td>Graveyard</td>
+            </tr>
+            <tr>
+              <td><img src="icons/pilgrimage.png"></td>
+              <td>Pilgrimage Site</td>
+            </tr>
+            <tr>
+              <td><img src="icons/scrapyard.png"></td>
+              <td>Scrapyard</td>
+            </tr>
+            <tr>
+              <td><img src="icons/water.png"></td>
+              <td>Water Source</td>
+            </tr>
+            <tr>
+              <td><img src="icons/crop.png"></td>
+              <td>Crop</td>
+            </tr>
+            <tr>
+              <td><img src="icons/healer.png"></td>
+              <td>Healer</td>
+            </tr>
+          </table>
+        </div><!-- end tableId -->
+
+        <div id="submitDiv">
+          <a href="form.html" class="button" id="submitButton" target="_blank">Submit an Item</a>
+        </div><!-- end submit -->
+
+      </div><!-- end infoPanel -->
+
+    </div><!-- end wrapper -->
+      
+  
+      
+    
 
     <script src="map.js"></script>
+
+    <script>
+    $(document).ready(function() {
+      $("#submitButton").css({
+        'width': ($("table").width() + 'px')
+      });
+      console.log('Width table' + $("table").width());
+      console.log('Width button' + $("#submitButton").width());
+
+    });
+    </script>
 
    
 

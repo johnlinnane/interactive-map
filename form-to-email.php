@@ -1,10 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Traditional Traveller Camps</title>
+  
+    <link rel="stylesheet" href="style.css" />
 
+
+</head>
+  
+  
+  <body>
 
 
 
 <?php
 
-############################################# SET DEFAULT TEST FOR FIELDS #############################################
+############################################# SET DEFAULT TEXT FOR FIELDS #############################################
 
 $postData = $uploadedFile = $statusMsg = '';
 $msgClass = 'errordiv';
@@ -140,12 +152,12 @@ if(isset($_POST['submit'])){
 
                 // If mail sent
                 if($mail){
-                    $statusMsg = 'Your contact request has been submitted successfully !';
+                    $statusMsg = 'Your site has been submitted successfully!';
                     $msgClass = 'succdiv';
 
                     $postData = '';
                 }else{
-                    $statusMsg = 'Your contact request submission failed, please try again.';
+                    $statusMsg = 'Woops! Your site submission failed, please try again.';
                 }
             }
         }
@@ -160,7 +172,16 @@ if(isset($_POST['submit'])){
 
     <!-- Display submission status -->
 <?php if(!empty($statusMsg)){ ?>
-    <p class="statusMsg <?php echo !empty($msgClass)?$msgClass:''; ?>"><?php echo $statusMsg; ?></p>
+    <div class="header">Traveller Collection
+    </div>
+
+    <div id="statusBody">
+        <p class="statusMsg <?php echo !empty($msgClass)?$msgClass:''; ?>"><?php echo $statusMsg; ?></p>
+
+        <div id="backDiv">
+            <a href="index.html" class="button">Back To Map</a>
+        </div> 
+    </div>
 <?php } ?>
 
 

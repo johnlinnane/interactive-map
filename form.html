@@ -55,10 +55,14 @@
 
   <body>
 
-    <div id="leftSpace">.      
+    <div class="header">Traveller Collection
     </div>
 
-    <div id="formContainer"> 
+    <div id="container" style="text-align: center;">
+    <!-- <div id="leftSpace">.      
+    </div> -->
+
+    <div id="formContainer" style="display: inline-block;"> 
       <form id="myForm" method="post" name="myemailform" action="form-to-email.php" enctype="multipart/form-data">
 
 
@@ -161,11 +165,12 @@
 
       </form>
 
-      <div style="width: var(--formWidth); text-align: center; padding: 20px">
+      <div id="backDiv">
         <a href="index.html" class="button" target="_blank">Back To Map</a>
       </div> <!-- end index link div -->
     
     </div> <!-- end formContainer div -->
+  </div><!-- end container div -->
 
 
     <script src="map.js"></script>

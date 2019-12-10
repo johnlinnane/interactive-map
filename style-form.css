@@ -10,6 +10,7 @@ body {
 #formContainer {
   width: 55vw;
   overflow: hidden;
+  text-align: left;
   
 }
 
@@ -35,6 +36,11 @@ select {
 
 #description {
   height: 50px;
+}
+
+#backDiv {
+  text-align: center; 
+  padding: 20px;
 }
 
 input[type=submit] {
