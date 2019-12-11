@@ -83,9 +83,9 @@ map.on('zoomend', function() {
 
 // ******************** SEARCH BAR ***************************************
 
-L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-  }).addTo(map);
+// L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+//     attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+//   }).addTo(map);
 
 var searchControl = new L.esri.Controls.Geosearch().addTo(map);
 
@@ -137,93 +137,93 @@ var siteIcon        = new defaultIcon({iconUrl: 'icons/site.png'}),
 
 // contemporary sites layer
 var siteLayer = L.layerGroup([
-    L.marker([53.296774, -6.985813], {icon: siteIcon}).addTo(map).bindPopup("Example Contemporary Site")
+    // L.marker([53.296774, -6.985813], {icon: siteIcon}).addTo(map).bindPopup("Example Contemporary Site")
 ]);
 
 // historical sites layer
 var siteHistLayer = L.layerGroup([
-    L.marker([53.243657, -6.971283], {icon: siteHistIcon}).addTo(map).bindPopup("<b>The Nine Mile Road</b><br><a href='info.html'>Click Here</a>"),
-    L.marker([53.343184, -6.959953], {icon: siteHistIcon}).addTo(map).bindPopup("Pinkeen Road"),
-    L.marker([53.284727, -6.900387], {icon: siteHistIcon}).addTo(map).bindPopup("Scour Canal Bridge"),
-    L.marker([53.350972, -7.097797], {icon: siteHistIcon}).addTo(map).bindPopup("Bullsbridge"),
-    L.marker([53.367466, -7.023468], {icon: siteHistIcon}).addTo(map).bindPopup("The Woody Cross Road"),
-    L.marker([53.4487, -7.08687],    {icon: siteHistIcon}).addTo(map).bindPopup("<img src='img/phils-road.png' class='popupImg'/><br>Phil's Road").bindTooltip("Click icon see image", {direction: 'right', offset: [15, 0]}).openTooltip(),
-    L.marker([53.37604, -7.10472],   {icon: siteHistIcon}).addTo(map).bindPopup("Jonestown Cross"),
-    L.marker([53.30091, -7.08897],   {icon: siteHistIcon}).addTo(map).bindPopup("The Midge River"),
-    L.marker([53.31685, -7.07155],   {icon: siteHistIcon}).addTo(map).bindPopup("Fan Hill"),
-    L.marker([53.33078, -7.21776],   {icon: siteHistIcon}).addTo(map).bindPopup("Tubbercurry"),
-    L.marker([53.32286, -7.19883],   {icon: siteHistIcon}).addTo(map).bindPopup("The Head of Tubbercurry"),
-    L.marker([53.32294, -7.18948],   {icon: siteHistIcon}).addTo(map).bindPopup("The Green Road"),
-    L.marker([53.35613, -7.16853],   {icon: siteHistIcon}).addTo(map).bindPopup("Fahey's Hill"),
-    L.marker([53.42247, -6.92748],   {icon: siteHistIcon}).addTo(map).bindPopup("Andy's Road"),
-    L.marker([53.38683, -6.92885],   {icon: siteHistIcon}).addTo(map).bindPopup("Birdy's Big House"),
-    L.marker([53.38183, -7.12014],   {icon: siteHistIcon}).addTo(map).bindPopup("Jim Hills"),
-    L.marker([53.36202, -7.17163],   {icon: siteHistIcon}).addTo(map).bindPopup("Judge Weightless"),
-    L.marker([53.31412, -7.12421],   {icon: siteHistIcon}).addTo(map).bindPopup("Berrigan's Corner"),
-    L.marker([53.30876, -7.13468],   {icon: siteHistIcon}).addTo(map).bindPopup("Blunt's Corner"),
-    L.marker([53.43955, -7.0775],    {icon: siteHistIcon}).addTo(map).bindPopup("Captain Crinnon's"),
+    L.marker([53.279380, -7.025221], {icon: siteHistIcon}).addTo(map).bindPopup("<b>The Nine Mile Road</b><br>"      + nineMileText,    {maxHeight: 250}),
+    L.marker([53.343184, -6.959953], {icon: siteHistIcon}).addTo(map).bindPopup("<b>Pinkeen Road</b><br>"            + pinkeenText,     {maxHeight: 250}),
+    L.marker([53.284727, -6.900387], {icon: siteHistIcon}).addTo(map).bindPopup("<b>Scour Canal Bridge</b><br>"      + scourText,       {maxHeight: 250}),
+    L.marker([53.36158, -7.07842],   {icon: siteHistIcon}).addTo(map).bindPopup("<b>Bullsbridge</b><br>"             + bullsbridgeText, {maxHeight: 250}),
+    L.marker([53.367466, -7.023468], {icon: siteHistIcon}).addTo(map).bindPopup("<b>The Woody Cross Road</b><br>"    + woodyCrossText,  {maxHeight: 250}),
+    L.marker([53.4487, -7.08687],    {icon: siteHistIcon}).addTo(map).bindPopup("<b>Phil's Road</b><br><img src='img/phils-road.png' class='popupImg'/><br><br>" + philsRoadText, {maxHeight: 250}),
+    L.marker([53.37604, -7.10472],   {icon: siteHistIcon}).addTo(map).bindPopup("<b>Jonestown Cross</b><br>"         + jonestownXText,  {maxHeight: 250}),
+    L.marker([53.30091, -7.08897],   {icon: siteHistIcon}).addTo(map).bindPopup("<b>The Midge River</b><br>"         + midgeRiverText,  {maxHeight: 250}),
+    L.marker([53.31685, -7.07155],   {icon: siteHistIcon}).addTo(map).bindPopup("<b>Fan Hill</b><br>"                + fanHillText,     {maxHeight: 250}),
+    L.marker([53.33078, -7.21776],   {icon: siteHistIcon}).addTo(map).bindPopup("<b>Tubberdaly</b><br>"              + tubberdalyText,  {maxHeight: 250}),
+    L.marker([53.32286, -7.19883],   {icon: siteHistIcon}).addTo(map).bindPopup("<b>The Head of Tubbercurry</b><br>" + headTubberText,  {maxHeight: 250}),
+    L.marker([53.32294, -7.18948],   {icon: siteHistIcon}).addTo(map).bindPopup("<b>The Green Road</b><br>"          + greenRoadText,   {maxHeight: 250}),
+    L.marker([53.35613, -7.16853],   {icon: siteHistIcon}).addTo(map).bindPopup("<b>Fahey's Hill</b><br>"            + faheysHillText,  {maxHeight: 250}),
+    L.marker([53.42247, -6.92748],   {icon: siteHistIcon}).addTo(map).bindPopup("<b>Andy's Road</b><br>"             + andysRdText,     {maxHeight: 250}),
+    L.marker([53.38683, -6.92885],   {icon: siteHistIcon}).addTo(map).bindPopup("<b>Birdy's Big House</b><br>"       + birdysHouseText, {maxHeight: 250}),
+    L.marker([53.38183, -7.12014],   {icon: siteHistIcon}).addTo(map).bindPopup("<b>Jim Hills</b><br>"               + jimHillsText,    {maxHeight: 250}),
+    L.marker([53.36202, -7.17163],   {icon: siteHistIcon}).addTo(map).bindPopup("<b>Judge Weightless</b><br>"        + judgeText,       {maxHeight: 250}),
+    L.marker([53.31412, -7.12421],   {icon: siteHistIcon}).addTo(map).bindPopup("<b>Berrigan's Corner</b><br>"       + berrigansText,   {maxHeight: 250}),
+    L.marker([53.30876, -7.13468],   {icon: siteHistIcon}).addTo(map).bindPopup("<b>Blunt's Corner</b><br>"          + bluntsText,      {maxHeight: 250}),
+    L.marker([53.43955, -7.0775],    {icon: siteHistIcon}).addTo(map).bindPopup("<b>Captain Crinnon's</b><br>"       + crinnonsText,    {maxHeight: 250})
 
 ]);
 
 // unofficial sites layer
 var siteUnoffLayer = L.layerGroup([
-    L.marker([53.180262, -8.195808], {icon: siteUnoffIcon}).addTo(map).bindPopup("Example Unofficial Site")
+    // L.marker([53.180262, -8.195808], {icon: siteUnoffIcon}).addTo(map).bindPopup("Example Unofficial Site")
 ]);
 
 
 // bog layer
 var bogLayer = L.layerGroup([
-    L.marker([53.328567, -6.904102], {icon: bogIcon}).addTo(map).bindPopup("Example Bog")
+    // L.marker([53.328567, -6.904102], {icon: bogIcon}).addTo(map).bindPopup("Example Bog")
 ]);
 
 // church layer
 var churchLayer = L.layerGroup([
-    L.marker([53.299698, -6.953283], {icon: churchIcon}).addTo(map).bindPopup("Example Church")
+    // L.marker([53.299698, -6.953283], {icon: churchIcon}).addTo(map).bindPopup("Example Church")
 ]);
 
 // dump layer
 var dumpLayer = L.layerGroup([
-    L.marker([51.917143, -8.459474], {icon: dumpIcon}).addTo(map).bindPopup("Example Dump")
+    // L.marker([51.917143, -8.459474], {icon: dumpIcon}).addTo(map).bindPopup("Example Dump")
 ]);
 
 //festival layer
 var festivalLayer = L.layerGroup([
-    L.marker([53.025436, -8.607134], {icon: festivalIcon}).addTo(map).bindPopup("Example Festival")
+    // L.marker([53.025436, -8.607134], {icon: festivalIcon}).addTo(map).bindPopup("Example Festival")
 ]);
 
 // forest layer
 var forestLayer = L.layerGroup([
-    L.marker([53.327337, -7.044263], {icon: forestIcon}).addTo(map).bindPopup("Example Forest")
+    // L.marker([53.327337, -7.044263], {icon: forestIcon}).addTo(map).bindPopup("Example Forest")
 ]);
 
 // graveyard layer
 var graveLayer = L.layerGroup([
-    L.marker([53.922671, -6.787346], {icon: graveIcon}).addTo(map).bindPopup("Example Graveyard")
+    // L.marker([53.922671, -6.787346], {icon: graveIcon}).addTo(map).bindPopup("Example Graveyard")
 ]);
 
 // pilgrimage site layer
 var pilgrimageLayer = L.layerGroup([
-    L.marker([53.254258, -7.226799], {icon: pilgrimageIcon}).addTo(map).bindPopup("Example Pilgrimage Site")
+    // L.marker([53.254258, -7.226799], {icon: pilgrimageIcon}).addTo(map).bindPopup("Example Pilgrimage Site")
 ]);
 
 // scrapyard layer
 var scrapyardLayer = L.layerGroup([
-    L.marker([52.384539, -8.440788], {icon: scrapyardIcon}).addTo(map).bindPopup("Example Scrapyard")
+    // L.marker([52.384539, -8.440788], {icon: scrapyardIcon}).addTo(map).bindPopup("Example Scrapyard")
 ]);
 
 // water source
 var waterLayer = L.layerGroup([
-    L.marker([52.414704, -9.816826], {icon: waterIcon}).addTo(map).bindPopup("Example Water Source")
+    // L.marker([52.414704, -9.816826], {icon: waterIcon}).addTo(map).bindPopup("Example Water Source")
 ]);
 
 // crop layer
 var cropLayer = L.layerGroup([
-    L.marker([53.434627, -9.608086], {icon: cropIcon}).addTo(map).bindPopup("Example Crop")
+    // L.marker([53.434627, -9.608086], {icon: cropIcon}).addTo(map).bindPopup("Example Crop")
 ]);
 
 // healer layer
 var healerLayer = L.layerGroup([
-    L.marker([54.035736, -8.652275], {icon: healerIcon}).addTo(map).bindPopup("Example Healer")
+    // L.marker([54.035736, -8.652275], {icon: healerIcon}).addTo(map).bindPopup("Example Healer")
 ]);
 
 // select all layer
