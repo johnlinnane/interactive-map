@@ -118,9 +118,9 @@ var defaultIcon = L.Icon.extend({
 // ******************** DEFINE CUSTOM ICONS ***************************************
 
 
-var siteIcon        = new defaultIcon({iconUrl: 'icons/site.png'}), 
-    siteHistIcon    = new defaultIcon({iconUrl: 'icons/wagon-colour.png'});
-    siteUnoffIcon   = new defaultIcon({iconUrl: 'icons/site-unoff.png'}),
+var authSiteIcon    = new defaultIcon({iconUrl: 'icons/site-auth.png'}), 
+    siteHistIcon    = new defaultIcon({iconUrl: 'icons/site-hist.png'});
+    siteUnoffIcon   = new defaultIcon({iconUrl: 'icons/site-unauth.png'}),
     bogIcon         = new defaultIcon({iconUrl: 'icons/bog.png'}),
     churchIcon      = new defaultIcon({iconUrl: 'icons/church.png'}),
     dumpIcon        = new defaultIcon({iconUrl: 'icons/dump.png'}),
@@ -135,13 +135,13 @@ var siteIcon        = new defaultIcon({iconUrl: 'icons/site.png'}),
 
 // ******************** ADD CUSTOM ICONS TO MAP, IN LAYERS ***************************************
 
-// contemporary sites layer
-var siteLayer = L.layerGroup([
-    // L.marker([53.296774, -6.985813], {icon: siteIcon}).addTo(map).bindPopup("Example Contemporary Site")
+// authorised sites layer
+var authSiteLayer = L.layerGroup([
+    // L.marker([53.296774, -6.985813], {icon: authSiteIcon}).addTo(map).bindPopup("Example Authorised Site")
 ]);
 
 // historical sites layer
-var siteHistLayer = L.layerGroup([
+var histSiteLayer = L.layerGroup([
     L.marker([53.279380, -7.025221], {icon: siteHistIcon}).addTo(map).bindPopup("<b>The Nine Mile Road</b><br>"      + nineMileText,    {maxHeight: 250}),
     L.marker([53.343184, -6.959953], {icon: siteHistIcon}).addTo(map).bindPopup("<b>Pinkeen Road</b><br>"            + pinkeenText,     {maxHeight: 250}),
     L.marker([53.284727, -6.900387], {icon: siteHistIcon}).addTo(map).bindPopup("<b>Scour Canal Bridge</b><br>"      + scourText,       {maxHeight: 250}),
@@ -165,9 +165,9 @@ var siteHistLayer = L.layerGroup([
 
 ]);
 
-// unofficial sites layer
-var siteUnoffLayer = L.layerGroup([
-    // L.marker([53.180262, -8.195808], {icon: siteUnoffIcon}).addTo(map).bindPopup("Example Unofficial Site")
+// unauthorised sites layer
+var unauthSiteLayer = L.layerGroup([
+    // L.marker([53.180262, -8.195808], {icon: siteUnoffIcon}).addTo(map).bindPopup("Example Unauthorised Site")
 ]);
 
 
@@ -232,9 +232,9 @@ var layer_select_all = new L.GeoJSON(null);
 // ********************* SHOW THESE LAYERS ON LOAD **************************************
 
 
-map.addLayer(siteLayer);
-map.addLayer(siteHistLayer);
-map.addLayer(siteUnoffLayer);
+map.addLayer(authSiteLayer);
+map.addLayer(histSiteLayer);
+map.addLayer(unauthSiteLayer);
 map.addLayer(bogLayer);
 map.addLayer(churchLayer);
 map.addLayer(dumpLayer);
@@ -259,9 +259,9 @@ var baseMaps = {
 };
 
 var overlayMaps = {
-    "Contemporary Site": siteLayer,
-    "Historical Site": siteHistLayer,
-    "Unofficial Site": siteUnoffLayer,
+    "Authorised Site": authSiteLayer,
+    "Historical Site": histSiteLayer,
+    "Unauthorised Site": unauthSiteLayer,
     "Bog": bogLayer, 
     "Church": churchLayer, 
     "Dump": dumpLayer, 
