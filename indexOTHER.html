@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traveller Sites</title>
+  
+    <link rel="stylesheet" href="style.css" />
+
+
+
+  </head>
+
+  <body>
+
+
+
+
+<script type="text/javascript">
+    function onSubmit() {
+      if (document.getElementById('password').value == 'Sites1') {
+        window.location.href = 'map.html'; 
+      }else{ 
+        alert('Please check your passcode and try again');
+      }
+    }
+</script>
+<div style="text-align: center; margin-top: 75px;">
+  <!-- <fieldset> -->
+    <form action="#">
+      <div>
+        <label>Enter Password</label>
+        <br><br>
+        <input type="password" name="password" maxlength="8"id="password" placeholder="" required/>
+      </div>    
+    </form>
+  <!-- </fieldset> -->
+
+  <button style="margin-top: 45px;" class="btn btn-info btn-large span5" id="joe_btn" onclick="onSubmit()">Submit</button>
+
+</div>
+
+</body>
+</html>
+

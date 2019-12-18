@@ -1,30 +1,53 @@
+<!DOCTYPE html>
 <html>
-    
-<head>
-  <title>Traveller Sites</title>
-</head>
-
-<body>
-
-
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traveller Sites</title>
+  
+    <link rel="stylesheet" href="style.css" />
 
 
-  <iframe
-  src="pw.html"
-  style="
-    position: fixed;
-    top: 0px;
-    bottom: 0px;
-    right: 0px;
-    width: 100%;
-    border: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    z-index: 999999;
-    height: 100%;
-  ">
-</iframe>
+
+  </head>
+
+  <body>
+
+
+
+
+
+
+  <div style="text-align: center; margin-top: 75px;">
+    <!-- <fieldset> -->
+          <br><br>
+          <input type="password"  style="text-align:center" name="password" maxlength="8" id="password" placeholder="Enter Password" required/>
+          <button type="button" style="margin-top: 45px;" class="btn btn-info btn-large span5" id="joe_btn" onclick="onSubmit()">Submit</button>
+    <!-- </fieldset> -->
+
+
+  </div>
+
+  <script type="text/javascript">
+
+    function onSubmit() {
+      if (document.getElementById('password').value == 'Sites1') {
+        window.location.href = 'map.html'; 
+      }else{ 
+        alert('Wrong Password');
+      }
+    }
+
+    // var input = document.getElementById("password");
+    // input.addEventListener("keyup", function(event) {
+    //   if (event.keyCode === 13) {
+    //    event.preventDefault();
+    //    document.getElementById("joe_btn").click();
+    //   }
+    // });
+  </script>
+
+
 
 </body>
 </html>
